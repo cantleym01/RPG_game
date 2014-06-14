@@ -1,0 +1,20 @@
+# depslib dependency file v1.0
+1402705809 source:c:\users\michael\documents\rpg game\game\main.cpp
+	<iostream>
+	<string>
+	<SDL.h>
+	<SDL_image.h>
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	<cassert>
+	"Controller.h"
+
+1402707752 c:\users\michael\documents\rpg game\game\controller.h
+	<SDL.h>
+	<SDL_image.h>
+	<cassert>
+
+1402705102 source:c:\users\michael\documents\rpg game\game\controller.cpp
+	"Controller.h"
+

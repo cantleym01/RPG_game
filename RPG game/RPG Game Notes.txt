@@ -1,0 +1,301 @@
+Game's Idea:
+	Play as 4 heroes, the Orphan, the Soldier, the Sorceress, and the Immortal. Play as the first 3 in small adventures, leading into one big, epic adventure, filled with demons, an evil Tyrant destroying the land, and much more. This game is ambitous, as I hope it has a story and gameplay mechanics so good that it will make grown men weep!
+
+Where to go:
+	This game will be made using SDL2 graphics library.
+
+Code Ideas & Mechanics:
+
+		->Do I want a stat and class system?
+			->Yes, but a very simple stat system, no player-chosen classes.
+				->These are the stats:
+					->Hp = Health Points
+						->Traditional hp, the character dies when it hits 0.
+					->Rs = Resistance
+						->A damage mitigation stat.
+					->Ap = Attack Power
+						->A damage application stat.
+					->Lk = Luck
+						->A randomizer that gives more variety.
+
+		->Will there be an experience and leveling system?
+			->Yes.
+				->Exp or Experience Points are earned by defeating enemies. (Will revise math later, but these seem do-able)
+					->Enemies will award exp on this calculation:
+						->((enemy_level * rand(15-25)) * ceil(number_of_enemies / 2))
+					->Experience required to level up starts at 150 points.
+					->When the player levels up the required Exp is remade to:
+						->(Req_Exp * 1.4)
+
+		->Will there be an item system?
+			->Yes, there will be armor, weapons, potions, and lore-junk.
+				->Armor will be one-piece items.
+				->Armor will have a defense stat.
+					->Defence will affect Resistance stat.
+				->Weapons will be:
+					->Chakrams for the Immortal.
+					->Swords for the Orphan.
+					->Maces for the Soldier.
+					->Staves for the Sorceress.
+				->Weapons will have a damage and speed stat.
+					Damage and Speed will affect the Attack Power stat.
+				->There will be level classes for the items, being the following (WILL be revised as no level cap estimated atm):
+					->1-20: Crude
+					->21-40: Amber
+					->41-60: Fel Crystal
+				->Potions will restore a static 20% of whichever resource it is meant for.
+					->Resources are:
+						->Health: Traditional hp, if it hits 0 you die.
+						->Fel: Demon power, it is what fuels abilities, magic, etc.
+				->Lore-junk is meant to be there as an inventory filler >:D
+					->On a more serious note it is there to give some background on where you are and what is going on in the world.
+
+		->How to handle combat?
+			->Working on it...
+				->Most likely turn-based combat.
+
+		->How to handle everything being stored eviroment-wise?
+			->Definitely want a 2D array
+				->Player can look left, right, up, down, forward, and backwards
+					->up and down will be smart-ass comments depending on the enviroment.
+					->left, right, forward and backwards will be dependant on everything.
+
+		->What happens when you "die"?
+			->You get sent back the beginning of the stage and everything in the room resets.
+				->Will most likely use some kinda auto-save feature for entering rooms (if I can figure that out).
+
+		->How to save the game?
+			->Use object serialization to keep track of what the characters had at the last save location.
+			->Will refine on where I save later, but object serialization is good.
+			
+
+Player Characters:
+	
+	Orphan:
+		Traits:
+			->Name: Vexxis Amator
+			->Half-Demon (plot)
+			->Naive sometimes
+			->Random bursts of blood-lust due to demon blood
+			->Silver Hair
+			->Eye color is blue
+			->Missing one eye
+			->Age - 15 (own little adventure) -> 18 (the main story)
+			->Son of Immortal & Tamera
+
+		Separate story plot line:
+			->Start - Being chased by a mob.
+			->Branch 1 - Continue running home or hide from mob.
+			->Stuff 1 (run) - Run home where your mother (Tamera) defends you against mob.
+			->Stuff 2 (run) - Bandits attack your home at night, fight them off, but mother (Tamera) gets kidnapped.
+			->Stuff 1 (hide) - Be found and fight mob yourself, but get knocked out at end and wake up at night.
+			->Stuff 2 (hide) - Make way home, but once you get home, you find an empty house.
+			->Stuff 3 (converge) - Town is attacked by Tyrant's legion & oprhan flees to search for mother (Tamera).
+			->Branch 2 - Follows tracks from footprints to a bandit camp, choose to sneak in and search, or attack from the start.
+			->Stuff 4 (sneak) - Sneak around camp and search for mother, if caught, jump to attack option.
+			->Stuff 4 (attack) - Fight all of the bandits, once dead, you can search camp safely.
+			->Stuff 5 - Tyrant's legion attack the bandit camp & oprhan fights him, but gets knocked out.
+			->End - Immortal wakes orphan, by the orphan's mother's (Tamera's) grave.
+
+	Soldier:
+		Traits:
+			->Name: Kravin Soldat
+			->Bitter to all but family
+			->Hardened in war against Tyrant
+			->Loves to drink
+			->Black hair
+			->Blue eyes
+			->Age - 28 (own little adventure) -> 31 (the main story)
+			->Son of Tyrant, mother unknown (plot)
+
+		Separate story plot line:
+			->Start - On way home from a long battle.
+			->Stuff 1 - Encounter highway-men on way home, they try to take road toll, doesn't go well for them.
+			->Stuff 2 - Go home to family (Wife named Saylai and Daughter named Kia).
+			->Stuff 3 - Tyrant's legion attacks village, soldier runs in to help defend village.
+			->Stuff 4 - Hear screams and shouts from home, so go home and kill those attacking your family.
+			->Branch 1 - Flee with family into mountains or hide in family cellar.
+			->Stuff 5 (run) - Chased by Tyrant himself into mountains and hit a dead end, Soldier fights but loses, while bleeding out sees wife killed and blacks out.
+			->Stuff 5 (hide) - Tyrant breaks down door to cellar, Soldier fights but loses, while bleeding out sees wife (Saylai) killed and blacks out.
+			->End - Awoken by Immortal at Immortal's camp, doesn't know what happened to daughter, assumes she is dead.
+
+	Sorceress:
+		Traits:
+			->Name: Sintheria (no surname)
+			->Cold and defensive
+			->Doesn't trust easily
+			->Vegitarian
+			->Can't control magic easily(which is powerful)
+			->Lives in the forest
+			->Can communicate with animals due to always leaking magic
+			->Dark purple hair
+			->Purple eyes
+			->Age - 17 (own little adventure) -> 20 (the main story)
+			->Daughter of Vungar, the demon of sin (plot)
+
+		Separate story plot line:
+			->Start - wake up from sleep and go gather food (berries and junk).
+			->Stuff 1 - Stumble upon a Tyrant camp de-foresting and razing the land.
+			->Branch 1 - Go destroy logging equipment, or free animals.
+			->Stuff 2 (equipment) - Fight loggers & destroy machines w/ magic.
+			->Stuff 2 (animals) - Fight trappers & destroy cages w/ magic.
+			->Stuff 3 - Something goes wrong, and magic goes haywire, resulting in a massive explosion that knock sorceress out.
+			->Stuff 4 - Waken up in crater by animals that were in camp, Tyrant is at edge of crater, glaring.
+			->Branch 2 - Stand and fight while so weakened, or attempt to flee.
+			->Stuff 5 (fight) - Fight Tyrant, but lose, get knocked off of cliff into a river below.
+			->Stuff 5 (run) - Too slow in your weakend state, only choice is to fight (jump to fight).
+			->End - Awakened at Immortal's camp & greeted by him.
+
+	Immortal:
+		Traits:
+			->Name: Lairiton (no surname)
+			->Carefree
+			->Serious when needs to be
+			->Immortal (duh)
+			->Father of vexxis (orphan)
+			->Brother of Tyrant
+			->Human-turned-demon
+			->Doesn't like to talk about the past
+			->Silver hair
+			->Purple eyes
+			->Age - unknown, he stopped counting (in hundreds)
+
+Villains:
+	Tyrant:
+		Traits:
+			->Name: Kratore (no surname)
+			->Brother of Immortal (plot)
+			->Father of Soldier (plot)
+			->Servant of the Demon King Vungar (plot)
+			->Stronger than Immortal
+			
+			post-turn traits:
+				->Ruthless
+				->Evil
+			
+			pre-turn traits:
+				->Selfless
+				->Caring
+	
+			->Black/Red hair
+			->Purple eyes
+			->Human-turned-demon(plot)
+			->Age - same as Immortal, but is the younger brother
+	Demon King:
+		Traits:
+			->Name: Vungar, The Demon of Sin
+			->Formed from the first sin of violence
+			->Father of Sorceress (plot)
+			->Overconfident
+			->Manipulative
+			->Nigh-Omniprescence (can see what all full-blooded demons are doing)
+			->Over a milennia old
+			->Hair - Black/Red
+			->Eyes - Black
+
+Supporting Characters:
+
+	Orphan's Mother:
+		Traits:
+			->Name: Tamera
+			->Defensive of Orphan and Immortal
+			->Fun loving
+			->Motherly
+			->Aggresive to villagers
+			->Black/blue hair
+			->Blye eyes
+			->Killed by Tyrant during the Orphan Arc
+			->Age - 37
+
+	Soldier's Wife:
+		Traits:
+			->Name: Saylai
+			->Model "soldier wife"
+			->Strong
+			->Much willpower. Wow
+			->Blonde hair
+			->Green eyes
+			->Killed by Tyrant during the Soldier Arc
+			->Age - 27
+
+	Soldier's Daughter:
+		Traits:
+			->Name: Kia
+			->Only 4 y/o at time of Soldier Arc
+			->Kidnapped secretley by Tyrant during Soldier Arc (thought to be dead)
+			->Blonde hair
+			->Blude eyes
+
+Setting (rough locations):
+
+	Continent:
+		->Name: Aegistra
+		->Time period: 1274 A.C. (After Closing) <- After Closing is plot based
+			->After closing is when the Demon King's dimension was initially sealed off from Aegistra
+
+		->Northern Snow Plains:
+			->Starting place of the Orphan Vexxis
+
+		->Forests of Olde:
+			->Starting place of the Sorceress Sintheria
+
+		->Harsh Mountains:
+			->Starting place of the Soldier Kravin
+
+		->Kingdom of Kratore:
+
+Main Story Set-pieces (after the orphan, soldier, and sorceress arcs are finished):
+
+	->Blood of Immortal's, Tyrant's, and Demon King's lines (not themselves) are needed to re-open the gate.
+		->Prophesy of the angel, the sacrifice, and the demon (respective positions)
+			-> Prophesy foretold at the initial closing of the Gates.
+				->Prophesy goes as told: (revise later)
+				In a time of great strife.
+				There will rise a shadow to cast the world in darkness.
+				From these shadows shall step the 3 giants.
+				The angel, who believes in the good of all.
+				The sacrifice, who gave his soul to save the angel.
+				The demon, who shapes all of the events of the world.
+				The kin of the three will inherit power untold.
+				In the end, the angel and kin must do battle against the demon.
+				The outcome shall decide the fate of the world.
+	
+		->The gate is a portal to the Demon King's dimension, dubbed "Planes of Sin".
+
+		->Tyrant kidnaps granddaughter due to being unable to harm his son.
+
+		->The kin are the Orphan, Soldier, and Sorceress (if you couldn't tell).
+
+		->The Immortal is the angel, he believes every human is capable of good, no matter what.
+
+		->The Tyrant is the sacrifice, he gave his soul to the Demon King to save his brother, the Immortal, from disease.
+			->Tyrant's "condition" is that he is still the same person, but has no control over his body, he can only see what is happening.
+
+		->The Demon King is the Demon (duh), who has orchestrated the next opening of the gates to his dimension.
+
+	->To defeat the Tyrant's army, the Immortal + kin must gain the trust of the 3 smaller kingdoms of the land.
+		->The kingdoms are:
+			->The Treant kingdom located in the Forests of Olde.
+				->Treants are as old as trees and massive in size.
+					->Avg age is 400 years by old age.
+				->Treant kingdom is the entire forest.
+					->There are few of them left due to Tyrant's foresting.
+
+			->The Human kingdom of the Harsh Mountains.
+				->Human's have shortest lifespan.
+					->Avg age is 90 by old age.
+				->Human's have the largest kingdom.
+			
+			->The Elven kingdom of the Northern Snow Plains.
+				->Elves are immortal, they can die from everything but old age.
+				->Due to living in Snow Plains since their first records, they need care to ventrue from their home.
+					->Need special suits to keep from different climates (Think an entire race of Mr.Freezes).
+
+		->To gain trust, they must do tasks for the kingdoms depending on what they need.
+			->Idea: (maybe random out of 3 different tasks for each kingdom, that would be cool to keep good replay value)
+
+			->Treant:
+
+			->Human:
+
+			->Elf:
