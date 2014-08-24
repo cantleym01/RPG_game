@@ -3,70 +3,6 @@ Game's Idea:
 
 Where to go:
 	This game will be made using SDL2 graphics library.
-
-Code Ideas & Mechanics:
-
-		->Do I want a stat and class system?
-			->Yes, but a very simple stat system, no player-chosen classes.
-				->These are the stats:
-					->Hp = Health Points
-						->Traditional hp, the character dies when it hits 0.
-					->Rs = Resistance
-						->A damage mitigation stat.
-					->Ap = Attack Power
-						->A damage application stat.
-					->Lk = Luck
-						->A randomizer that gives more variety.
-
-		->Will there be an experience and leveling system?
-			->Yes.
-				->Exp or Experience Points are earned by defeating enemies. (Will revise math later, but these seem do-able)
-					->Enemies will award exp on this calculation:
-						->((enemy_level * rand(15-25)) * ceil(number_of_enemies / 2))
-					->Experience required to level up starts at 150 points.
-					->When the player levels up the required Exp is remade to:
-						->(Req_Exp * 1.4)
-
-		->Will there be an item system?
-			->Yes, there will be armor, weapons, potions, and lore-junk.
-				->Armor will be one-piece items.
-				->Armor will have a defense stat.
-					->Defence will affect Resistance stat.
-				->Weapons will be:
-					->Chakrams for the Immortal.
-					->Swords for the Orphan.
-					->Maces for the Soldier.
-					->Staves for the Sorceress.
-				->Weapons will have a damage and speed stat.
-					Damage and Speed will affect the Attack Power stat.
-				->There will be level classes for the items, being the following (WILL be revised as no level cap estimated atm):
-					->1-20: Crude
-					->21-40: Amber
-					->41-60: Fel Crystal
-				->Potions will restore a static 20% of whichever resource it is meant for.
-					->Resources are:
-						->Health: Traditional hp, if it hits 0 you die.
-						->Fel: Demon power, it is what fuels abilities, magic, etc.
-				->Lore-junk is meant to be there as an inventory filler >:D
-					->On a more serious note it is there to give some background on where you are and what is going on in the world.
-
-		->How to handle combat?
-			->Working on it...
-				->Most likely turn-based combat.
-
-		->How to handle everything being stored eviroment-wise?
-			->Definitely want a 2D array
-				->Player can look left, right, up, down, forward, and backwards
-					->up and down will be smart-ass comments depending on the enviroment.
-					->left, right, forward and backwards will be dependant on everything.
-
-		->What happens when you "die"?
-			->You get sent back the beginning of the stage and everything in the room resets.
-				->Will most likely use some kinda auto-save feature for entering rooms (if I can figure that out).
-
-		->How to save the game?
-			->Use object serialization to keep track of what the characters had at the last save location.
-			->Will refine on where I save later, but object serialization is good.
 			
 
 Player Characters:
@@ -85,15 +21,10 @@ Player Characters:
 
 		Separate story plot line:
 			->Start - Being chased by a mob.
-			->Branch 1 - Continue running home or hide from mob.
-			->Stuff 1 (run) - Run home where your mother (Tamera) defends you against mob.
-			->Stuff 2 (run) - Bandits attack your home at night, fight them off, but mother (Tamera) gets kidnapped.
-			->Stuff 1 (hide) - Be found and fight mob yourself, but get knocked out at end and wake up at night.
-			->Stuff 2 (hide) - Make way home, but once you get home, you find an empty house.
-			->Stuff 3 (converge) - Town is attacked by Tyrant's legion & oprhan flees to search for mother (Tamera).
-			->Branch 2 - Follows tracks from footprints to a bandit camp, choose to sneak in and search, or attack from the start.
-			->Stuff 4 (sneak) - Sneak around camp and search for mother, if caught, jump to attack option.
-			->Stuff 4 (attack) - Fight all of the bandits, once dead, you can search camp safely.
+			->Stuff 1 - Run home where your mother (Tamera) defends you against mob.
+			->Stuff 2 - Bandits attack your home at night, fight them off, but mother (Tamera) gets kidnapped.
+			->Stuff 3 - Town is attacked by Tyrant's legion & oprhan flees to search for mother (Tamera).
+			->Stuff 4 - Sneak around camp and search for mother, if caught, jump to fighting them.
 			->Stuff 5 - Tyrant's legion attack the bandit camp & oprhan fights him, but gets knocked out.
 			->End - Immortal wakes orphan, by the orphan's mother's (Tamera's) grave.
 
@@ -114,9 +45,7 @@ Player Characters:
 			->Stuff 2 - Go home to family (Wife named Saylai and Daughter named Kia).
 			->Stuff 3 - Tyrant's legion attacks village, soldier runs in to help defend village.
 			->Stuff 4 - Hear screams and shouts from home, so go home and kill those attacking your family.
-			->Branch 1 - Flee with family into mountains or hide in family cellar.
-			->Stuff 5 (run) - Chased by Tyrant himself into mountains and hit a dead end, Soldier fights but loses, while bleeding out sees wife killed and blacks out.
-			->Stuff 5 (hide) - Tyrant breaks down door to cellar, Soldier fights but loses, while bleeding out sees wife (Saylai) killed and blacks out.
+			->Stuff 5 - Tyrant breaks down door to cellar, Soldier fights but loses, while bleeding out sees wife (Saylai) killed and blacks out.
 			->End - Awoken by Immortal at Immortal's camp, doesn't know what happened to daughter, assumes she is dead.
 
 	Sorceress:
@@ -136,14 +65,10 @@ Player Characters:
 		Separate story plot line:
 			->Start - wake up from sleep and go gather food (berries and junk).
 			->Stuff 1 - Stumble upon a Tyrant camp de-foresting and razing the land.
-			->Branch 1 - Go destroy logging equipment, or free animals.
-			->Stuff 2 (equipment) - Fight loggers & destroy machines w/ magic.
-			->Stuff 2 (animals) - Fight trappers & destroy cages w/ magic.
+			->Stuff 2 - Fight loggers & destroy machines w/ magic.
 			->Stuff 3 - Something goes wrong, and magic goes haywire, resulting in a massive explosion that knock sorceress out.
 			->Stuff 4 - Waken up in crater by animals that were in camp, Tyrant is at edge of crater, glaring.
-			->Branch 2 - Stand and fight while so weakened, or attempt to flee.
-			->Stuff 5 (fight) - Fight Tyrant, but lose, get knocked off of cliff into a river below.
-			->Stuff 5 (run) - Too slow in your weakend state, only choice is to fight (jump to fight).
+			->Stuff 5 - Fight Tyrant, but lose, get knocked off of cliff into a river below.
 			->End - Awakened at Immortal's camp & greeted by him.
 
 	Immortal:
@@ -183,13 +108,14 @@ Villains:
 			->Age - same as Immortal, but is the younger brother
 	Demon King:
 		Traits:
-			->Name: Vungar, The Demon of Sin
+			->Name: Vungar, The Demon of Violence
 			->Formed from the first sin of violence
 			->Father of Sorceress (plot)
 			->Overconfident
 			->Manipulative
 			->Nigh-Omniprescence (can see what all full-blooded demons are doing)
-			->Over a milennia old
+			->Several milennia old
+			->Ruled the world before the gate was closed
 			->Hair - Black/Red
 			->Eyes - Black
 
@@ -197,7 +123,7 @@ Supporting Characters:
 
 	Orphan's Mother:
 		Traits:
-			->Name: Tamera
+			->Name: Tamera Amator
 			->Defensive of Orphan and Immortal
 			->Fun loving
 			->Motherly
@@ -209,7 +135,7 @@ Supporting Characters:
 
 	Soldier's Wife:
 		Traits:
-			->Name: Saylai
+			->Name: Saylai Soldat
 			->Model "soldier wife"
 			->Strong
 			->Much willpower. Wow
@@ -220,7 +146,7 @@ Supporting Characters:
 
 	Soldier's Daughter:
 		Traits:
-			->Name: Kia
+			->Name: Kia Soldat
 			->Only 4 y/o at time of Soldier Arc
 			->Kidnapped secretley by Tyrant during Soldier Arc (thought to be dead)
 			->Blonde hair
@@ -235,12 +161,15 @@ Setting (rough locations):
 
 		->Northern Snow Plains:
 			->Starting place of the Orphan Vexxis
+			->Kingdom of the Elves
 
 		->Forests of Olde:
 			->Starting place of the Sorceress Sintheria
+			->Kingdom of the Treants
 
 		->Harsh Mountains:
 			->Starting place of the Soldier Kravin
+			->Kingdom of the Humans
 
 		->Kingdom of Kratore:
 
@@ -273,29 +202,36 @@ Main Story Set-pieces (after the orphan, soldier, and sorceress arcs are finishe
 
 		->The Demon King is the Demon (duh), who has orchestrated the next opening of the gates to his dimension.
 
-	->To defeat the Tyrant's army, the Immortal + kin must gain the trust of the 3 smaller kingdoms of the land.
+	->To defeat the Tyrant's army, the Immortal + kin must gain the trust of the 3 smaller kingdoms of the land. No kingdom will be jumping at the chance due to 	them having treaties with the Tyrant and not wanting to anger him due to his armies size (about 3x human's army).
 		->The kingdoms are:
-			->The Treant kingdom located in the Forests of Olde.
+			->The Treant kingdom of Arbor is located in the Forests of Olde.
 				->Treants are as old as trees and massive in size.
 					->Avg age is 400 years by old age.
 				->Treant kingdom is the entire forest.
 					->There are few of them left due to Tyrant's foresting.
 
-			->The Human kingdom of the Harsh Mountains.
+			->The Human kingdom of Simia is located in the Harsh Mountains.
 				->Human's have shortest lifespan.
 					->Avg age is 90 by old age.
 				->Human's have the largest kingdom.
 			
-			->The Elven kingdom of the Northern Snow Plains.
+			->The Elven kingdom of Frigus is located in the Northern Snow Plains.
 				->Elves are immortal, they can die from everything but old age.
 				->Due to living in Snow Plains since their first records, they need care to ventrue from their home.
 					->Need special suits to keep from different climates (Think an entire race of Mr.Freezes).
+				->Their technology is so advanced due to their understanding of felonic energy and what it is capable of.
 
 		->To gain trust, they must do tasks for the kingdoms depending on what they need.
 			->Idea: (maybe random out of 3 different tasks for each kingdom, that would be cool to keep good replay value)
 
-			->Treant:
+			->Treant: The Treants of the kingdom Arbor want to help and stop the foresting of their land, but know that if they attack as they are they will stand no chance against the Tyrant due to his armies size alone. To act, but not be wiped out they need to find an old artifact that will allow them to age their younglings to adult age. The artifact is lost to them, as they once had one of their bravest young treants hide it so that they will never be able to find it again. They hid it so they could remain a peaceful race, as an artifact that would allow them to double, if not triple, their adult population in only a few days would warrent the attention of other kingdoms. The artifact's power is to age any Treant near it at a pace of an entire Treant lifetime in half a day and form their personalities around the life experiences of the being to last hold the artifact up to the point of them leaving the vecinity of the artifact. The Elder mentions at some point that the last time the artifact was used was when he was before his time. He also mentions who was the last person to imprint upon a group of Treants, the Immortal (dun, duh, duuuh).
 
-			->Human:
+				 The heroes are tasked with finding the artifact. To find it they need to venture with a Treant elder, named Klaritus, to the resting place of the Treant who hid the artifact from his own people's sight. A ritual must take place that will allow our heroes, or any non-Treant (Treant magic cannot work on another Treant) to enter the memories of the Treant. Inside the ritual memory, anything they do will have actual interactions; the outcome of history in the real world is unaffected, but anything inside can still be changed, such as their actual death, the death of the Treant they are following and so-on.
 
-			->Elf:
+				In the memory they will undergo the challenges that the Treant, dubbed Porlaris, had the honor of hiding. Porlaris had the "pleasure" of meeting the heroes as they appeared from thin air in the middle of his journey. Throughout the journey with Porlaris, they go through every event he had with some twists (specify later when writing story, this is just to keep the juices flowing). After they have found the location of the artifact, they have to send a message to the Elder Treant to pull them out (Insert funny dialog about how they didn't think this far ahead). They agreed the best option was for (choice time): Sintheria, the Sorceress, to light up like a christmas tree with her magic or for Vexxis, the orphan, to channel his power.
+
+				Once back in the real world, Klaritus, the elder, welcomes them and asks if they found the location of the artifact. They tell him yes, that it is hidden buried underground where Porlaris took root and was born as a youngling. After aquiring the artifact they hoof it back to Arbor where they put the artifact into effect and make their way to their next destination (end arc).
+
+			->Human: There's a rightful king debate going on between 2 twins. Both want what is best for their people, but both are going about it in different ways. One, named Tencar, wants to lead his kingdom into freedom from the Tyrant, while his brother, named Malidore, wants to keep his kingdom safe under the Tyrant's reign, and honestly believes it is best. Their mother and father, the queen and king, named Sayrwa and Elindar respectively, had been assassinated by an unknown assassin.
+
+			->Elf: missing research team, prince is with them.

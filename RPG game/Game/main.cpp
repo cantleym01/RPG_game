@@ -7,10 +7,11 @@
 #include <stdlib.h>
 #include <time.h>
 #include <cassert>
+#include <vector>
 
 //personal files
 #include "Controller.h" //the game control
-//#include "B&W.h" //some bells and whistles
+#include "Utility.h" //some bells and whistles
 
 using std::cout;
 using std::cin;
@@ -21,7 +22,27 @@ int main(int argc, char *argv[])
 {
     srand(time(NULL)); //seed the random
 
-    Controller Game;
-    Game.runGame();
+    vector<int> v1;
+    v1.push_back(8);
+    v1.push_back(90);
+    v1.push_back(3);
+    v1.push_back(4);
+    v1.push_back(12);
+    cout << v1.at(0) << " ";
+    cout << v1.at(1) << " ";
+    cout << v1.at(2) << " ";
+    cout << v1.at(3) << " ";
+    cout << v1.at(4) << " ";
 
+    sortVec(v1);
+
+    cout << endl;
+    cout << v1.at(0) << " ";
+    cout << v1.at(1) << " ";
+    cout << v1.at(2) << " ";
+    cout << v1.at(3) << " ";
+    cout << v1.at(4) << " ";
+
+    //Controller Game;
+    //Game.runGame();
 }

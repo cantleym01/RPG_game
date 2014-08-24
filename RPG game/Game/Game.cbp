@@ -34,6 +34,8 @@
 		</Compiler>
 		<Unit filename="Controller.cpp" />
 		<Unit filename="Controller.h" />
+		<Unit filename="Utility.cpp" />
+		<Unit filename="Utility.h" />
 		<Unit filename="main.cpp" />
 		<Extensions>
 			<code_completion />
