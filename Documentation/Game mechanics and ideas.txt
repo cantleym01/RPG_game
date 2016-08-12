@@ -1,0 +1,74 @@
+How to make the game?
+	->This game will be made using Unity game engine.
+
+	->Game will be isometric 8-bit. will have to test out a couple concepts first, but I really like this idea.
+
+Code Ideas & Mechanics:
+	->Do I want a stat and class system?
+		->Yes, a very simple stat system, no player-chosen classes.
+			->These are the stats:
+				->Hp = Health Points
+					->Traditional hp, the character dies when it hits 0.
+					->There will be items, and abilites, to bring the character back to life in battle, but they cost a lot of money. When combat ends though, the person is revived at 50% hp.
+				->Rs = Resistance
+					->A damage mitigation stat.
+				->Ap = Attack Power
+					->A damage application stat.
+				->Fl = Felonic Energy
+					->The resource pool for all ablilities and magic.
+				->Str = Strength
+					->Damage for heavy melee
+					->Strength related tasks
+				->Dex = Dexterity
+					->Damage for light melee
+					->Agility related tasks
+					->Also helps with speed, which determines battle order (like initiative)
+				->Con = Constitution
+					->HP pool
+					->bleed duration
+					->poison duration
+				->Wis = Wisdom
+					->Fl pool
+					->ability to notice things
+					->mind control duration
+				->Int = Intelligence
+					->Damage for magic
+					->confuse duration
+				->Cha = Charisma
+					->Conversational ability
+					->trading ability
+					->increases luck the most
+				->Luck (hidden stat)
+					->effect basically all tasks that could go badly or well
+
+	->Will there be an experience and leveling system?
+		->Exp or Experience Points are earned by defeating enemies, completing tasks, etc. (Will do math later, but exponential growth is my idea currently)
+
+	->Will there be an item system?
+		->Yes, there will be armor, weapons, potions, and lore-junk.
+			->Armor will be one-piece items (i.e. no seperate breastplate from greaves).
+			->Weapons will have a damage and speed stat.
+				->Damage will affect the Attack Power stat.
+				->Speed determines the order in which everyone on the battle field has their turn (kinda like initiative).
+			->Potions will restore a static 30% of whichever resource it is meant for.
+				->Resources are:
+					->Health: Traditional hp, if it hits 0 you die.
+					->Felonic Energy: Demon Power, it is what fuels abilities, magic, etc.
+						->Everyone has the potential to access Demon Power, thanks to the Demon Lords gifting it to mortals (more able slaves), but what their powers will be varies from person to person.
+			->Lore-Junk is meant to be there as an inventory filler >:D
+				->On a more serious note it is there to give some background on where you are and what is going on in the world.
+				->Some people like to learn about game worlds by reading many pages of information... And I spent a long time crafting this world dangit!
+
+	->How to handle combat?
+		->turn based combat. I really want to make it similar to D&D. Look at divinity for inspiration
+
+	->How will skill trees work?
+		->Every character has a skill tree with 3 branches.
+			->One branch does damage, another increases survivability, the last increases assist abilities.
+			->The Orphan's damage tree focuses on him channeling his rage for melee. His survivability tree increases his ability to ignore damage. His assist tree lets him do crowd control by changing the enviroment.
+			->The Soldier's damage tree focuses on using his longsword and sheild more effectively in combat. His survivability tree lets him block damage and protect allies. His assist tree lets him taunt enemies and draw attention.
+			->The Sorceress' damage tree lets her use offensive nature magic. Her survivability tree consists of diverting attention. Her assist tree is healing magic.
+			->The Immortal's damage tree is finesse and flashy damage dealing. His survivability tree is healing from damage done and reducing status effects. His assist tree is to buff his allies.
+
+	->What happens when you "die"?
+		->You get sent back to your previous save if you wish, or you may just rage-quit.
